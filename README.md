@@ -1,6 +1,6 @@
 # Sign Up and Login using Golang
 
-This project implements a simple sign-up and login service using Golang. It supports user registration, authentication, and basic database interactions.
+This project implements a simple sign-up and login service using Golang. It supports user registration, login.
 
 ## Getting Started
 
