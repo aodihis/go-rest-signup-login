@@ -12,8 +12,6 @@ import (
 var DB *sql.DB
 
 func ConnectDb() error {
-	config.LoadEnv()
-
 	dbHost := config.GetEnv("DB_HOST")
 	dbPort := config.GetEnv("DB_PORT")
 	dbUser := config.GetEnv("DB_USER")

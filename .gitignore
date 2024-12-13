@@ -1,4 +1,6 @@
 .env
 .idea
 bin/
-bruno/
+bruno/*
+buno/Users Register Login/Register.bru
+buno/Users Register Login/bruno.json

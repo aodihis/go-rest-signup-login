@@ -37,9 +37,27 @@ func (s *AuthService) SignUp(email string, password string, confirm string) (*mo
 		IsActive: true,
 	}
 
+	if !user.IsValidEmail() {
+		return nil, errors.New("invalid email")
+	}
+
 	err := s.userRepo.CreateUser(user)
 	if err != nil {
 		return nil, err
+	}
+
+	return user, nil
+}
+
+func (s *AuthService) Login(email string, password string) (*models.User, error) {
+	email = strings.ToLower(strings.TrimSpace(email))
+	user, err := s.userRepo.FindUserByEmail(email)
+	if err != nil {
+		return nil, errors.New("invalid credentials")
+	}
+
+	if err := user.CheckPassword(password); err != nil {
+		return nil, errors.New("invalid credentials")
 	}
 
 	return user, nil

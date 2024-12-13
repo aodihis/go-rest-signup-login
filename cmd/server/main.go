@@ -19,9 +19,10 @@ func main() {
 		log.Fatalf("Failed to connect to the database: %v", err)
 	}
 
-	authController := handlers.NewAuthHandler()
+	authHandler := handlers.NewAuthHandler()
 
-	http.HandleFunc("/register", authController.SignUp)
+	http.HandleFunc("/signup", authHandler.SignUp)
+	http.HandleFunc("/login", authHandler.Login)
 
 	if port == "" {
 		port = "80"

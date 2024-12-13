@@ -6,3 +6,9 @@ run:
 
 migrate:
 	go run cmd/migration/main.go
+
+test:
+	go test ./internal/handlers
+
+lint:
+	golangci-lint run
